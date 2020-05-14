@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'basicapp/base.html' %}
+
+{% block body_block %}
+{% if registered %}
+
+<h1>Thanks, you are successfully registred!</h1>
+
+{% else %}
+
+<form class="form" method="post">
+  {% csrf_token %}
+  {{user_form.as_p}}
+  {{profile_form.as_p}}
+  <input type="submit" name="" value="Register">
+</form>
+
+{% endif %}
+{% endblock %}
